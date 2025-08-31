@@ -22,11 +22,15 @@ This fork improves the original by:
 
 ## Screenshot / Demo
 
-Example:
+The repository already contains a screenshot file in `assets/`:
 
-```markdown
-![Flappy Bird gameplay showing a pixelated yellow bird flying between green pipes with a blue sky background and score displayed at the top. The scene conveys a playful and challenging atmosphere typical of arcade games. The score text is visible in the upper center of the screen.](assets/Screenshot%202025-08-29%20234103.png)
-```
+- `assets/Screenshot 2025-08-29 234103.png`
+
+You can preview it in the README via the link below. (On GitHub the spaces are URL-encoded automatically; the encoded path is used here for safety.)
+
+![Gameplay screenshot](assets/Screenshot%202025-08-29%20234103.png)
+
+If you'd prefer a simpler filename (recommended), rename the file to `assets/screenshot.png` — I can do that for you if you like.
 
 ---
 
@@ -141,3 +145,7 @@ Note: include the `assets/` directory when packaging the executable.
 ## License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
+
+---
+
+If you want, I can rename the screenshot to `assets/screenshot.png` and update the README to reference the simpler filename — say the word "rename" and I'll make that change now.
