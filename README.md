@@ -28,7 +28,7 @@ The repository already contains a screenshot file in `assets/`:
 
 You can preview it in the README via the link below. (On GitHub the spaces are URL-encoded automatically; the encoded path is used here for safety.)
 
-![Gameplay screenshot](assets/Screenshot%202025-08-29%20234103.png)
+![Gameplay screenshot](assets/screenshot.png)
 
 If you'd prefer a simpler filename (recommended), rename the file to `assets/screenshot.png` — I can do that for you if you like.
 
