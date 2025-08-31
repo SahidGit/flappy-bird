@@ -1,37 +1,98 @@
-# Flappy Bird - Improved (Python + pygame)
+# Flappy Bird Game
 
-This is a small Flappy Bird clone implemented in Python using pygame. I updated the project to:
+A small, polished Flappy Bird clone built with Python and pygame.
+This repository contains a lightweight, well-documented example game intended for learning, packaging, and distribution.
 
-- Use the bundled TTF font (`assets/PressStart2P-Regular.ttf`) for all UI text via `pygame.font.Font`.
-- Increase the window resolution and scale UI elements (titles, score, pipes, bird) for better visibility.
-- Clean up minor formatting and indentation issues in `flappy.py` and ensured the script is syntax-correct.
+---
 
-## Run the game
+## Project overview
 
-Requirements:
+- Language: Python 3
+- Library: pygame
+- Purpose: Educational game demonstrating simple game loop architecture, asset management, sound, and input handling.
 
-- Python 3.8+
-- pygame
+This fork improves the original by:
 
-Install and run:
+- Using a bundled arcade-style TrueType font (`assets/PressStart2P-Regular.ttf`) for consistent UI rendering.
+- Increasing screen resolution and scaling UI elements for readability.
+- Adding a text-scaling helper to avoid clipping long UI strings.
+- Providing a minimal headless smoke test for logic verification.
+
+---
+
+## Screenshot / Demo
+
+Example:
+
+```markdown
+![Flappy Bird gameplay showing a pixelated yellow bird flying between green pipes with a blue sky background and score displayed at the top. The scene conveys a playful and challenging atmosphere typical of arcade games. The score text is visible in the upper center of the screen.](assets/Screenshot%202025-08-29%20234103.png)
+```
+
+---
+
+## Requirements
+
+- Python 3.8 or newer
+- pygame (see `requirements.txt`)
+
+---
+
+## Install
+
+Create a virtual environment (recommended) and install dependencies:
 
 ```powershell
-python -m pip install --upgrade pip
-pip install pygame
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+---
+
+## Run
+
+Start the game from the repository root:
+
+```powershell
+python main.py
+# or
 python flappy.py
 ```
 
-## What changed (high level)
+Controls
 
-- Font integration: the game now uses `assets/PressStart2P-Regular.ttf` if present. The font is loaded with `pygame.font.Font(path, size)` via a small helper `load_font(size)` so different UI sizes render correctly.
-- Window and UI scaling: `WIDTH` and `HEIGHT` increased to 540x760. Fonts and sprites were scaled to keep proportions.
-- Minor refactors: cleaned up unused imports and fixed indentation issues in `Bird.__init__`.
+- SPACE: flap / jump
+- Q or window close: quit
 
-## Cleanup note
+---
 
-Canonical assets are stored in `assets/`. There are some duplicate files in the project root (audio files and `highscore.txt`) that can be removed. They are not used by the game because `flappy.py` reads from `assets/`.
+## Project layout
 
-Recommended cleanup commands (PowerShell):
+- `flappy.py` - Main game implementation (game loop, rendering, input).
+- `main.py` - Canonical entry point that runs `flappy.main()`.
+- `assets/` - Images, sounds, font, and highscore file (canonical asset location).
+- `smoke_test.py` - Headless logic tests (non-GUI checks).
+- `requirements.txt` - Project dependencies.
+- `LICENSE` - MIT license.
+- `README.md` - This file.
+
+---
+
+## Tests
+
+Run the quick headless smoke test (no game window) to verify basic game logic:
+
+```powershell
+python smoke_test.py
+```
+
+Expected output: `SMOKE TEST PASSED`.
+
+---
+
+## Cleanup / Recommended gitignore
+
+Canonical assets live in `assets/`. There may be duplicate audio/highscore files at the project root — you can safely remove them using the following PowerShell commands if you prefer a tidy repo:
 
 ```powershell
 Remove-Item .\flap.wav -ErrorAction SilentlyContinue
@@ -41,30 +102,42 @@ Remove-Item .\highscore.txt -ErrorAction SilentlyContinue
 Remove-Item -Recurse -Force .\__pycache__ -ErrorAction SilentlyContinue
 ```
 
-## Publish to GitHub
+A recommended `.gitignore` (already provided):
 
-I can't push to your GitHub repository directly. To publish this project under your account (https://github.com/SahidGit) do the following in PowerShell from the project root:
-
-```powershell
-git init
-git add .
-git commit -m "Initial Flappy Bird - Improved"
-# Create a repo on GitHub web UI (e.g. SahidGit/flappy-bird) then:
-git remote add origin https://github.com/SahidGit/flappy-bird.git
-git branch -M main
-git push -u origin main
+```
+__pycache__/
+*.pyc
+.env
+venv/
+.DS_Store
 ```
 
-If you want I can prepare a small `publish.ps1` script that automates the push once you've created the remote repo and set your credentials.
+---
 
-## Notes and follow-ups
+## Contributing
 
-- I validated the code for syntax errors and adjusted UI positions; I could not run an automated in-window test from this environment. Please run `python flappy.py` locally and verify that:
-  - Bird jumps with SPACE
-  - Pipes spawn and move left
-  - Score increases when passing pipes
-  - Collisions trigger game over and highscore persists
+Contributions are welcome. Typical workflow:
 
-If you want, I can also prepare a `requirements.txt` and a PyInstaller spec for packaging.
+1. Fork the repository
+2. Create a feature branch
+3. Implement changes and add tests where feasible
+4. Submit a pull request with a clear description of your changes
 
-Enjoy!
+---
+
+## Packaging / Distribution
+
+For single-file distribution on Windows, you can use PyInstaller. Example (run after activating your virtualenv):
+
+```powershell
+pip install pyinstaller
+pyinstaller --onefile --windowed main.py
+```
+
+Note: include the `assets/` directory when packaging the executable.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
