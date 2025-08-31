@@ -26,11 +26,10 @@ The repository already contains a screenshot file in `assets/`:
 
 - `assets/Screenshot 2025-08-29 234103.png`
 
-You can preview it in the README via the link below. (On GitHub the spaces are URL-encoded automatically; the encoded path is used here for safety.)
+You can preview it in the README via the link below. 
 
 ![Gameplay screenshot](assets/screenshot.png)
 
-If you'd prefer a simpler filename (recommended), rename the file to `assets/screenshot.png` — I can do that for you if you like.
 
 ---
 
@@ -75,49 +74,11 @@ Controls
 - `flappy.py` - Main game implementation (game loop, rendering, input).
 - `main.py` - Canonical entry point that runs `flappy.main()`.
 - `assets/` - Images, sounds, font, and highscore file (canonical asset location).
-- `smoke_test.py` - Headless logic tests (non-GUI checks).
 - `requirements.txt` - Project dependencies.
 - `LICENSE` - MIT license.
 - `README.md` - This file.
 
 ---
-
-## Tests
-
-Run the quick headless smoke test (no game window) to verify basic game logic:
-
-```powershell
-python smoke_test.py
-```
-
-Expected output: `SMOKE TEST PASSED`.
-
----
-
-## Cleanup / Recommended gitignore
-
-Canonical assets live in `assets/`. There may be duplicate audio/highscore files at the project root — you can safely remove them using the following PowerShell commands if you prefer a tidy repo:
-
-```powershell
-Remove-Item .\flap.wav -ErrorAction SilentlyContinue
-Remove-Item .\point.wav -ErrorAction SilentlyContinue
-Remove-Item .\hit.wav -ErrorAction SilentlyContinue
-Remove-Item .\highscore.txt -ErrorAction SilentlyContinue
-Remove-Item -Recurse -Force .\__pycache__ -ErrorAction SilentlyContinue
-```
-
-A recommended `.gitignore` (already provided):
-
-```
-__pycache__/
-*.pyc
-.env
-venv/
-.DS_Store
-```
-
----
-
 ## Contributing
 
 Contributions are welcome. Typical workflow:
