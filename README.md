@@ -11,13 +11,6 @@ This repository contains a lightweight, well-documented example game intended fo
 - Library: pygame
 - Purpose: Educational game demonstrating simple game loop architecture, asset management, sound, and input handling.
 
-This fork improves the original by:
-
-- Using a bundled arcade-style TrueType font (`assets/PressStart2P-Regular.ttf`) for consistent UI rendering.
-- Increasing screen resolution and scaling UI elements for readability.
-- Adding a text-scaling helper to avoid clipping long UI strings.
-- Providing a minimal headless smoke test for logic verification.
-
 ---
 
 ## Screenshot / Demo
@@ -106,7 +99,3 @@ Note: include the `assets/` directory when packaging the executable.
 ## License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
-
----
-
-If you want, I can rename the screenshot to `assets/screenshot.png` and update the README to reference the simpler filename — say the word "rename" and I'll make that change now.
